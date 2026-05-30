@@ -1,0 +1,33 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cloudflare-tunnel
+  namespace: traefik-system
+spec:
+  chart:
+    spec:
+      chart: cloudflare-tunnel
+      sourceRef:
+        kind: HelmRepository
+        name: cloudflare
+        namespace: flux-system
+  interval: 1h
+  # values:
+  #   cloudflare:
+  #     tunnel_token: "" # Leave empty, we will use the secret below
+    
+  #   # This block links the secret you created to the tunnel pod
+  #   env:
+  #     - name: TUNNEL_TOKEN
+  #       valueFrom:
+  #         secretKeyRef:
+  #           name: cloudflare-tunnel-token
+  #           key: tunnel-token
+
+  #   # The Ingress Rules: This is where you map your domain to your local service
+  #   config:
+  #     ingress:
+  #       - hostname: headlamp.northcloud.dev
+  #         # Point this to your Traefik service name and port
+  #         service: http://traefik.traefik-system.svc.cluster.local:80
+  #       - service: http_status:404 # Catch-all for undefined subdomains
