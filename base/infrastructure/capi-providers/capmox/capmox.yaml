@@ -16,4 +16,3 @@ spec:
   version: v0.8.1
   configSecret:
       name: proxmox-credentials   
-      namespace: default

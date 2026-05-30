@@ -20,3 +20,8 @@ spec:
     createNamespace: true
   upgrade:
     crds: CreateReplace
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: capmox-system
