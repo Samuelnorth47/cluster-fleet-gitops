@@ -31,13 +31,45 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: capi-providers
+  name: capi
   namespace: flux-system
 spec:
   interval: 15m
   dependsOn:
     - name: capi-operator
-  path: ./base/infrastructure/capi-providers
+  path: ./base/infrastructure/capi-providers/capi
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  wait: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: capi-capbt-capcp
+  namespace: flux-system
+spec:
+  interval: 15m
+  dependsOn:
+    - name: capi
+  path: ./base/infrastructure/capi-providers/capbtcapcp
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  wait: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: capi-capmox
+  namespace: flux-system
+spec:
+  interval: 15m
+  dependsOn:
+    - name: capi-capbt-capcp
+  path: ./base/infrastructure/capi-providers/capmox
   prune: true
   sourceRef:
     kind: GitRepository
@@ -52,7 +84,7 @@ metadata:
 spec:
   interval: 15m
   dependsOn:
-    - name: capi-providers
+    - name: capi-capmox
   path: ./clusters/kind/admin-capi-manifests
   prune: true
   sourceRef:
