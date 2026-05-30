@@ -166,7 +166,7 @@ apiVersion: cluster.x-k8s.io/v1beta2
 kind: MachineDeployment
 metadata:
   name: capi-quickstart-workers
-  namespace: capi-system
+  namespace: capmox-system
 spec:
   clusterName: capi-quickstart
   replicas: 1
@@ -194,7 +194,7 @@ apiVersion: bootstrap.cluster.x-k8s.io/v1beta1
 kind: TalosConfigTemplate
 metadata:
   name: capi-quickstart-worker
-  namespace: capi-system
+  namespace: capbpt-system
 spec:
   template:
     spec:
