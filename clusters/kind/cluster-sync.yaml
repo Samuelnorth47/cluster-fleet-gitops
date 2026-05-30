@@ -1,10 +1,26 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
+  name: managed-cert-manager
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./base/infrastructure/certmanager
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  wait: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
   name: capi-operator
   namespace: flux-system
 spec:
   interval: 15m
+  dependsOn:
+    - name: managed-cert-manager
   path: ./base/infrastructure/capi-operator
   prune: true
   sourceRef:
