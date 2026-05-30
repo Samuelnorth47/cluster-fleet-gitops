@@ -46,7 +46,7 @@ spec:
     gateway: 192.168.20.1
     prefix: 24
 ---
-apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+apiVersion: controlplane.cluster.x-k8s.io/v1alpha3 
 kind: TalosControlPlane
 metadata:
   name: capi-quickstart-control-plane
@@ -190,7 +190,7 @@ spec:
         name: capi-quickstart-worker
       version: v1.36.0
 ---
-apiVersion: bootstrap.cluster.x-k8s.io/v1beta2
+apiVersion: bootstrap.cluster.x-k8s.io/v1beta1 
 kind: TalosConfigTemplate
 metadata:
   name: capi-quickstart-worker
