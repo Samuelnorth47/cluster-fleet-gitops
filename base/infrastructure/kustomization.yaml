@@ -6,3 +6,4 @@ resources:
   - ./cilium
   - ./capi-operator
   - ./flux-operator
+  - ./capi-providers
