@@ -87,7 +87,7 @@ metadata:
 spec:
   interval: 10m
   dependsOn:
-    - name: kind-cilium
+    - name:  managed-cilium
   path: ./base/infrastructure/flux-operator
   prune: true
   sourceRef:

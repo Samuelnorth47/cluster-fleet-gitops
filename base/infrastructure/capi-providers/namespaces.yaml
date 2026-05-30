@@ -1,0 +1,11 @@
+kind: Namespace
+metadata:
+  name: capi-system
+---
+kind: Namespace
+metadata:
+  name: cabpt-system
+---
+kind: Namespace
+metadata:
+  name: capmox-system
