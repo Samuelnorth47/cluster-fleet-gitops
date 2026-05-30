@@ -19,6 +19,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 15m
+  dependsOn:
+    - name: capi-operator
   path: ./clusters/kind/infrastructure
   prune: true
   sourceRef:
