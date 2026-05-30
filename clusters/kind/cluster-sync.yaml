@@ -78,7 +78,6 @@ spec:
     secretRef:
       name: capiquickstart-kubeconfig
   wait: true
-apiVersion: kustomize.toolkit.fluxcd.io/v1
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
