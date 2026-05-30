@@ -3,4 +3,3 @@ kind: Kustomization
 # List all the yaml orchestration files sitting inside this directory
 resources:
   - cluster-sync.yaml # The manifest holding your staging sequence
-  - admin-capi-manifests/kustomization.yaml # The manifest holding your admin cluster CAPI manifests
