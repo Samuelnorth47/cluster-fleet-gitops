@@ -53,7 +53,7 @@ spec:
   interval: 15m
   dependsOn:
     - name: capi-providers
-  path: ./cluster/kind/admin-capi-manifests
+  path: ./clusters/kind/admin-capi-manifests
   prune: true
   sourceRef:
     kind: GitRepository
