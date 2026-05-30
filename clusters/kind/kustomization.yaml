@@ -31,12 +31,28 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
+  name: admin-capi-manifests
+  namespace: flux-system
+spec:
+  interval: 15m
+  dependsOn:
+    - name: capi-operator
+  path: ./cluster/kind/admin-capi-manifests
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  wait: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
   name: kind-cilium
   namespace: flux-system
 spec:
   interval: 10m
   dependsOn:
-    - name: kind-infrastructure
+    - name: admin-capi-manifests
   path: ./base/infrastructure/cilium
   prune: true
   sourceRef:
