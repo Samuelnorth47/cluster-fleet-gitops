@@ -4,5 +4,4 @@ metadata:
   name: helm
   namespace: capi-operator-system
 spec:
-  type: Addon
   version: v0.6.4
