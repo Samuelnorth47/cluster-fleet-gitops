@@ -61,3 +61,5 @@ spec:
         enabled: true
       ui:
         enabled: true
+    bgpContrlane:
+      enabled: true
