@@ -82,6 +82,7 @@ spec:
                 - net.ifnames=0
               extensions:
                 - image: ghcr.io/siderolabs/qemu-guest-agent:11.0.0
+            network:
               interfaces:
                 - interface: eth0
                   dhcp: false
