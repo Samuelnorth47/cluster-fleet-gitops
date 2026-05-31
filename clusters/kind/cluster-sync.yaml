@@ -116,7 +116,7 @@ metadata:
 spec:
   interval: 15m
   dependsOn:
-    - name: capi-capmox
+    - name: caaph
   path: ./clusters/kind/admin-capi-manifests
   prune: true
   sourceRef:
