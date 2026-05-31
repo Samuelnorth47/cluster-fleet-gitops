@@ -210,10 +210,3 @@ spec:
             kubelet:
               extraArgs:
                 cloud-provider: external
-          cluster:
-            network:
-              cni:
-                name: none
-              dnsDomain: cluster.local
-            proxy:
-              disabled: true

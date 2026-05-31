@@ -124,7 +124,7 @@ spec:
     name: flux-system
   kubeConfig:
     secretRef:
-      name: capiquickstart-kubeconfig
+      name: capi-quickstart-kubeconfig
   wait: true
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
@@ -143,7 +143,7 @@ spec:
     name: flux-system
   kubeConfig:
     secretRef:
-      name: capiquickstart-kubeconfig
+      name: capi-quickstart-kubeconfig
   wait: true
 # ---
 # apiVersion: kustomize.toolkit.fluxcd.io/v1
