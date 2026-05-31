@@ -123,6 +123,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+    namespace: flux-system
   kubeConfig:
     secretRef:
       name: capi-quickstart-kubeconfig
@@ -136,12 +137,14 @@ metadata:
 spec:
   interval: 10m
   dependsOn:
-    - name:  managed-cilium
+    - name: managed-cilium
+      namespace: default
   path: ./base/infrastructure/flux-operator
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
+    namespace: flux-system
   kubeConfig:
     secretRef:
       name: capi-quickstart-kubeconfig
