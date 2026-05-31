@@ -112,11 +112,12 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: managed-cilium
-  namespace: flux-system
+  namespace: default
 spec:
   interval: 10m
   dependsOn:
     - name: admin-capi-manifests
+      namespace: flux-system
   path: ./base/infrastructure/cilium
   prune: true
   sourceRef:
@@ -131,7 +132,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: managed-flux-operator
-  namespace: flux-system
+  namespace: default
 spec:
   interval: 10m
   dependsOn:
