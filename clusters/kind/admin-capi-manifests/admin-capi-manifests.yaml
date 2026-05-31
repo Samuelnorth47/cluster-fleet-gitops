@@ -68,8 +68,10 @@ spec:
             kubelet:
               extraArgs:
                 cloud-provider: external
-                rotate-server-certificates: "true"
             features:
+              kubePrism:
+                enabled: true
+                port: 7445
               kubernetesTalosAPIAccess:
                 enabled: true
                 allowedRoles:
@@ -102,7 +104,7 @@ spec:
               enabled: true
               manifests:
                 - https://raw.githubusercontent.com/siderolabs/talos-cloud-controller-manager/main/docs/deploy/cloud-controller-manager.yml
-                - https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/main/deploy/standalone-install.yaml
+#                - https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/main/deploy/standalone-install.yaml
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
 kind: ProxmoxMachineTemplate
@@ -205,6 +207,10 @@ spec:
       strategicPatches:
         - |
           machine:
+            features: 
+              kubePrism:
+                enabled: true
+                port: 7445
             install:
               disk: /dev/sda
             kubelet:
