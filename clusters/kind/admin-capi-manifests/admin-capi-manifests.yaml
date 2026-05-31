@@ -5,7 +5,7 @@ metadata:
     cluster.x-k8s.io/cluster-name: capi-quickstart
     bootstrap: "true"
   name: capi-quickstart
-  namespace: capi-system
+  namespace: default
 spec:
   clusterNetwork:
     pods:
@@ -24,7 +24,7 @@ apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
 kind: ProxmoxCluster
 metadata:
   name: capi-quickstart
-  namespace: capmox-system
+  namespace: default
 spec:
   credentialsRef:
     name: proxmox-credentials
@@ -50,7 +50,7 @@ apiVersion: controlplane.cluster.x-k8s.io/v1alpha3
 kind: TalosControlPlane
 metadata:
   name: capi-quickstart-control-plane
-  namespace: capcp-system
+  namespace: default
 spec:
   replicas: 3
   version: v1.36.0
@@ -106,7 +106,7 @@ apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
 kind: ProxmoxMachineTemplate
 metadata:
   name: capi-quickstart-control-plane
-  namespace: capmox-system
+  namespace: default
 spec:
   template:
     spec:
@@ -136,7 +136,7 @@ apiVersion: infrastructure.cluster.x-k8s.io/v1alpha2
 kind: ProxmoxMachineTemplate
 metadata:
   name: capi-quickstart-worker
-  namespace: capmox-system
+  namespace: default
 spec:
   template:
     spec:
@@ -166,7 +166,7 @@ apiVersion: cluster.x-k8s.io/v1beta2
 kind: MachineDeployment
 metadata:
   name: capi-quickstart-workers
-  namespace: capmox-system
+  namespace: default
 spec:
   clusterName: capi-quickstart
   replicas: 1
@@ -194,7 +194,7 @@ apiVersion: bootstrap.cluster.x-k8s.io/v1beta1
 kind: TalosConfigTemplate
 metadata:
   name: capi-quickstart-worker
-  namespace: capbpt-system
+  namespace: default
 spec:
   template:
     spec:
